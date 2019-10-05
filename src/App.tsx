@@ -1,11 +1,19 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
+
+import Header from './components/Header';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header>
+
+      </Header>
+      {/*<header className="App-header">
+        
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
@@ -18,7 +26,7 @@ const App: React.FC = () => {
         >
           Learn React
         </a>
-      </header>
+  </header>*/}
     </div>
   );
 }
