@@ -3,6 +3,7 @@ import { carousel_panel, carousel_container, centered_slide, button_layout } fro
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Recorder from 'recorder-js';
+import { Spinner } from 'react-bootstrap';
 
 export default class Carousel extends React.Component {
     state: any;
@@ -17,27 +18,41 @@ export default class Carousel extends React.Component {
         this.book = props.book;
         this.state = {
             currentSlide: 0,
+            stream: null,
         }
 
         this.audioContext = new AudioContext();
         this.recorder = new Recorder(this.audioContext);
-
         navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(stream => {
-            this.recorder.init(stream);
-            this.recorder.start().then(() => console.log('recording now'));
-        })
-        .catch(err => console.log('Uh oh... unable to get stream...', err));
+            .then(stream => {
+                this.recorder.init(stream);
+                this.recorder.start().then(() => console.log('recording now'));
+                this.setState({ stream });
+            })
+            .catch(err => console.log('Uh oh... unable to get stream...', err));
     }
 
-    public nextSlide() {
+    public setnullstream() {
+        this.setState({ stream: null });
+    }
+
+    public setstream(stream: any) {
+        this.setState({ stream });
+    }
+
+    public async nextSlide() {
+        this.setnullstream();
         const nextslideNumber: number = this.state.currentSlide + 1;
         const { slides, callback } = this.props;
         this.recorder.stop()
-        .then((obj : {blob: Blob, buffer: Array<Float32Array>}) => {
-            Recorder.download(obj.blob, 'PLease work.wav');
-            console.log(obj.blob, obj.buffer);
-        })
+            .then((obj: { blob: Blob, buffer: Array<Float32Array> }) => {
+                Recorder.download(obj.blob, `${this.state.currentSlide}`);
+            })
+
+        let stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+        this.recorder.init(stream);
+        this.recorder.start().then(() => console.log('recording now'));
+        this.setstream(stream);
 
         if (nextslideNumber >= slides.length) {
             callback();
@@ -51,6 +66,13 @@ export default class Carousel extends React.Component {
     public render() {
         const { slides } = this.props;
         const { currentSlide } = this.state;
+
+        if (!this.state.stream) {
+            return (<Spinner animation="border" role="status">
+                <span className="sr-only">Loading...</span>
+            </Spinner>);
+        }
+
         return (
             <div className={carousel_container}>
                 <Slide text={slides[currentSlide]} callback={() => this.nextSlide()}></Slide>
@@ -66,7 +88,6 @@ function Slide(props: { text: string, callback: any }) {
     if (withoutSpace.length === 0) {
         callback();
     }
-
     return (
         <div className={carousel_panel}>
             <div className={centered_slide}>
