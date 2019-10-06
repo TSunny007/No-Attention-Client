@@ -5,4 +5,4 @@ export interface IBook {
     description?: string,
     readingLevel?: 'Easy' | 'Medium' | 'Difficult',
     text?: string
-   }
+}
