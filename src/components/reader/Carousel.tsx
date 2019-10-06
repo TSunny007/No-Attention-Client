@@ -78,7 +78,7 @@ export default class Carousel extends React.Component {
         return (
             <div className={carousel_container}>
                 {
-                    this.slide({text: slides[currentSlide], callback: this.nextSlide})
+                    this.slide({text: slides[currentSlide], callback: () => this.nextSlide()})
                 }
             </div>
         );
