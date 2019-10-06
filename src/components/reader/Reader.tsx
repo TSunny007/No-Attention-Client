@@ -21,10 +21,8 @@ export default class Reader extends React.Component {
 
         this.slides = [];
         this.results = {
-            spoken: ['I got these', 'He wanted to go outside', 'Hello these, how are you', 'I wanted 1',
-            'I wanted 2', 'I wanted 3'],
-             expected: ['We got these', 'We wanted to go outside', 'I am doing swell', 'I wanted 4',
-            'I wanted 5', 'I wanted 6']
+            spoken: [],
+             expected: []
         };
 
         splitLines.forEach((line: string, index: number) => {
