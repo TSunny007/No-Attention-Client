@@ -55,7 +55,7 @@ export default class Reader extends React.Component {
                 nume++;
             }
         });
-        return Math.round((100 * nume)/denom);
+        return Math.round((100 * nume) / denom);
     }
 
     public generateSummaryPage() {
@@ -70,16 +70,16 @@ export default class Reader extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                        {this.results.spoken.map((verse, i) => {
-                            return (
-                            <tr>
-                                <td>{i+1}</td>
+                    {this.results.spoken.map((verse, i) => {
+                        return (
+                            <tr key={i}>
+                                <td>{i + 1}</td>
                                 <td>{this.results.spoken[i]}</td>
                                 <td>{this.results.expected[i]}</td>
                                 <td>{this.correctPercentage(i)}</td>
-                            </tr>   
-                            )
-                        })}
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </Table>
         );
@@ -99,8 +99,8 @@ export default class Reader extends React.Component {
                         name={this.name}
                         book={this.book}
                         callback={() => this.finishSlidesCallback()}
-                        />)
-                        // updatecallback={(spoken, expected) => this.addRecord(spoken, expected)}
+                        updatecallback={(spoken: string, expected: string) => this.addRecord(spoken, expected)}
+                    />)
                 }
                 {showSummary &&
                     this.generateSummaryPage()}
