@@ -21,49 +21,7 @@ export const BOOKS: { [key: string]: IBook } = {
         Too wet to go out
         And too cold to play ball.
         So we sat in the house.
-        We did nothing at all.
-        
-        So all we could do was to
-        
-        Sit!
-        Sit!
-        Sit!
-        Sit!
-        
-        And we did not like it.
-        Not one little bit.
-        
-        BUMP!
-        
-        And then
-        something went BUMP!
-        How that bump made us jump!
-        
-        We looked!
-        Then we saw him step in on the mat!
-        We looked!
-        And we saw him!
-        The Cat in the Hat!
-        And he said to us,
-        "Why do you sit there like that?"
-        "I know it is wet
-        And the sun is not sunny.
-        But we can have
-        Lots of good fun that is funny!"
-        
-        "I know some good games we could play,"
-        Said the cat.
-        "I know some new tricks,"
-        Said the Cat in the Hat.
-        "A lot of good tricks.
-        I will show them to you.
-        Your mother
-        Will not mind at all if I do."
-        
-        Then Sally and I
-        Did not know what to say.
-        Our mother was out of the house
-        For the day.`,
+        We did nothing at all.`,
         bookThumbnail: '/cat-in-hat.jpeg',
         bookSummaryThumbnail: '/cat-in-hat-summary.jpg',
         bookCoverThumbnail: '/cat-in-hat-cover.jpg',
@@ -76,7 +34,17 @@ export const BOOKS: { [key: string]: IBook } = {
         readingLevel: 'Medium',
         description: 'A story about a cat that wears socks. A cunning fox it is!',
         publisher: 'Random House', //This is not the full text of the book
-        text: `Fox's story goes like this...`,
+        text: `Socks on Knox and Knox in box.
+        
+        Fox in socks on box on Knox.
+        
+        Chicks with bricks come.
+        Chicks with blocks come.
+        Chicks with bricks and blocks and clocks come.
+        
+        Look, sir.  Look, sir.  Mr. Knox, sir.
+        Let's do tricks with bricks and blocks, sir.
+        Let's do tricks with chicks and clocks, sir.`,
         bookThumbnail: '/fox-in-socks.jpg',
         bookSummaryThumbnail: '/fox-in-socks-summary.jpg',
         bookCoverThumbnail: '/fox-in-socks-cover.jpg',
@@ -89,7 +57,11 @@ export const BOOKS: { [key: string]: IBook } = {
         readingLevel: 'Medium',
         description: 'This book is about a grinch. A very popular and widely loved book.',
         publisher: 'Random House',
-        text: `Grinch's story goes like this...`,
+        text: `But the Grinch,Who lived just north of Whoville, Did NOT!
+        The Grinch hated Christmas! The whole Christmas season!
+        Now, please don't ask why. No one quite knows the reason.
+        It could be his head wasn't screwed on just right.
+        It could be, perhaps, that his shoes were too tight.`,
         bookThumbnail: '/how-the-grinch-stole-christmas.png',
         bookSummaryThumbnail: '/how-the-grinch-stole-christmas-summary.jpg',
         bookCoverThumbnail: '/how-the-grinch-stole-christmas-cover.jpg',
