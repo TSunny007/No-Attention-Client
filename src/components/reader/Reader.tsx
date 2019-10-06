@@ -9,6 +9,8 @@ export default class Reader extends React.Component {
     slides: Array<string>;
     state: any;
 
+    results: { spoken: Array<string>, expected: Array<string> };
+
     constructor(public props: any) {
         super(props);
         let b: string = props.location.search.substring(1).split('?')[0];
@@ -18,6 +20,12 @@ export default class Reader extends React.Component {
         const splitLines: Array<string> = (BOOKS[this.book]).text!.split('\n');
 
         this.slides = [];
+        this.results = {
+            spoken: ['I got these', 'He wanted to go outside', 'Hello these, how are you', 'I wanted 1',
+            'I wanted 2', 'I wanted 3'],
+             expected: ['We got these', 'We wanted to go outside', 'I am doing swell', 'I wanted 4',
+            'I wanted 5', 'I wanted 6']
+        };
 
         splitLines.forEach((line: string, index: number) => {
             if (index % 2 === 0) {
@@ -39,49 +47,62 @@ export default class Reader extends React.Component {
         });
     }
 
+    public correctPercentage(i: number) {
+        let spoken = this.results.spoken[i];
+        let expected = this.results.expected[i];
+        let denom = expected.split(' ').length;
+        var nume = 0;
+        spoken.split(' ').forEach(s => {
+            if (expected.split(' ').includes(s)) {
+                nume++;
+            }
+        });
+        return Math.round((100 * nume)/denom);
+    }
+
     public generateSummaryPage() {
         return (
             <Table striped bordered hover>
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Username</th>
+                        <th>Spoken</th>
+                        <th>Expected</th>
+                        <th>Percentage Correct</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>@twitter</td>
-                    </tr>
+                        {this.results.spoken.map((verse, i) => {
+                            return (
+                            <tr>
+                                <td>{i+1}</td>
+                                <td>{this.results.spoken[i]}</td>
+                                <td>{this.results.expected[i]}</td>
+                                <td>{this.correctPercentage(i)}</td>
+                            </tr>   
+                            )
+                        })}
                 </tbody>
             </Table>
         );
     }
 
+    public addRecord(spoken: string, expected: string) {
+        this.results.spoken = [...this.results.spoken, spoken]
+        this.results.expected = [...this.results.expected, expected]
+    }
+
     public render() {
         const { showSummary } = this.state;
-        const { book, slides } = this;
         return (
             <div>
                 {!showSummary &&
-                    (<Carousel slides={this.slides} 
-                        name={this.name} 
-                        book={this.book} 
-                        callback={() => this.finishSlidesCallback()} />)
+                    (<Carousel slides={this.slides}
+                        name={this.name}
+                        book={this.book}
+                        callback={() => this.finishSlidesCallback()}
+                        />)
+                        // updatecallback={(spoken, expected) => this.addRecord(spoken, expected)}
                 }
                 {showSummary &&
                     this.generateSummaryPage()}
