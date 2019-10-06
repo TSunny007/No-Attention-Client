@@ -4,21 +4,19 @@ import Carousel from './Carousel';
 import { Table } from 'react-bootstrap';
 
 export default class Reader extends React.Component {
-
-    book: any;
-
+    book: string;
+    name: string;
     slides: Array<string>;
-
     state: any;
 
     constructor(public props: any) {
         super(props);
-        let book: string = props.location.search.substring(1).split('?')[0];
-        let name = book.split('&')[1].split('=')[1];
-        book = book.split('&')[0].split('=')[1];
+        let b: string = props.location.search.substring(1).split('?')[0];
+        this.name = b.split('&')[1].split('=')[1];
+        this.book = b.split('&')[0].split('=')[1];
 
-        this.book = BOOKS[book];
-        const splitLines: Array<string> = this.book!.text.split('\n');
+        const splitLines: Array<string> = (BOOKS[this.book]).text!.split('\n');
+
         this.slides = [];
 
         splitLines.forEach((line: string, index: number) => {
@@ -80,7 +78,10 @@ export default class Reader extends React.Component {
         return (
             <div>
                 {!showSummary &&
-                    (<Carousel slides={slides} callback={() => this.finishSlidesCallback()} />)
+                    (<Carousel slides={this.slides} 
+                        name={this.name} 
+                        book={this.book} 
+                        callback={() => this.finishSlidesCallback()} />)
                 }
                 {showSummary &&
                     this.generateSummaryPage()}
