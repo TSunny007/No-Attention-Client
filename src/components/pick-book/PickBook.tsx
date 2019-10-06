@@ -19,7 +19,7 @@ export default class PickBook extends React.Component {
                     <Card.Text>
                         {book.description}
                     </Card.Text>
-                    <Button variant="primary" href={"/book-summary/"+bookName}>Read this book!</Button>
+                    <Button variant="primary" href={"#book-summary/"+bookName}>Read this book!</Button>
                 </Card.Body>
             </Card>
         );
