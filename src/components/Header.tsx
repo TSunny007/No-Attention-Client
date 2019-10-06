@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 export default class Header extends React.Component {
     constructor(public props: Readonly<any>) {
@@ -11,8 +11,8 @@ export default class Header extends React.Component {
         return (
             <Navbar expand="lg" bg="light">
                 <Navbar.Brand>No Attention!</Navbar.Brand>
-                <Nav.Link href="pick-book">Pick Book</Nav.Link>
-                <Nav.Link href="accent">Accents</Nav.Link>
+                <Nav.Link href="/pick-book">Pick Book</Nav.Link>
+                <Nav.Link href="/accent">Accents</Nav.Link>
             </Navbar>
         );
     }

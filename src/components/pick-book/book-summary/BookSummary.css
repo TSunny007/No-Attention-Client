@@ -1,0 +1,46 @@
+.background_img {
+    opacity: 0.6;
+    width: 100%;
+ }
+
+ .book_title {
+    position: absolute;
+    top: 60px;
+    left: 300px;
+ }
+
+ .book_author{
+    position: absolute;
+    top: 90px;
+    left: 300px;
+    font-size: 20px;
+ }
+
+ .book_publisher{
+    position: absolute;
+    top: 110px;
+    left: 300px;
+    font-size: 20px;
+ }
+
+ .book_year{
+    position: absolute;
+    top: 130px;
+    left: 300px;
+    font-size: 20px;
+ }
+
+ .user_info {
+    position: absolute;
+    top: 220px;
+    left: 300px;
+}
+
+ /* Bottom left text */
+.book_art {
+    position: absolute;
+    height: 333px;
+    width: 233px;
+    top: 40px;
+    left: 40px;
+  }

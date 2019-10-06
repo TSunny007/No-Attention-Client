@@ -63,6 +63,26 @@ export const BOOKS: { [key: string]: IBook } = {
         Then Sally and I
         Did not know what to say.
         Our mother was out of the house
-        For the day.`
-    }
+        For the day.`,
+        bookThumbnail: '/cat-in-hat.jpeg'
+    },
+    'fox': {
+        name: 'Fox in Socks',
+        author: 'Dr. Seuss',
+        readingLevel: 'Medium',
+        description: 'A story about a cat that wears socks. A cunning fox it is!',
+        publisher: 'Random House', //This is not the full text of the book
+        text: `Fox's story goes like this...`,
+        bookThumbnail: '/fox-in-socks.jpg'
+    },
+    'grinch' : {
+        name: 'How the Grinch Stole Christmas',
+        author: 'Dr. Seuss',
+        readingLevel: 'Medium',
+        description: 'This book is about a grinch. A very popular and widely loved book.',
+        publisher: 'Random House',
+        text: `Grinch's story goes like this...`,
+        bookThumbnail: '/how-the-grinch-stole-christmas.png'
+    },
+    
 }

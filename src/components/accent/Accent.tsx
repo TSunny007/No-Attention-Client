@@ -7,7 +7,7 @@ export default class Accent extends React.Component {
 
     public render() {
         return (
-            <p>I am accents</p>
+            <p>I am accent</p>
         );
     }
 }
