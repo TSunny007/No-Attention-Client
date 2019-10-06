@@ -38,7 +38,8 @@ export const carousel_green: any = css({
 
 export const carousel_container: any = css({
     height: '100%',
-    width: '100%'
+    width: '100%',
+    userSelect: 'none',
 });
 
 export const centered_slide: any = css({
