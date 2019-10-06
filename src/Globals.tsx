@@ -3,5 +3,6 @@ export interface IBook {
     author?: string,
     publisher?: string,
     description?: string,
-    readingLevel?: 'Easy' | 'Medium' | 'Difficult'
+    readingLevel?: 'Easy' | 'Medium' | 'Difficult',
+    text?: string
    }
