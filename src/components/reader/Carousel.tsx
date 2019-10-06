@@ -134,7 +134,7 @@ export default class Carousel extends React.Component {
                 </div>
                 <div className={button_layout} >
                     <span className={mute ? grey : notgrey} onClick={mute ? () => console.log('ope') : callback}><FontAwesomeIcon icon={faArrowAltCircleRight} /></span>
-                    <span className={c} onClick={mutecb}><FontAwesomeIcon icon={!mute ? faMicrophoneSlash : faMicrophone} /></span>
+                    <span className={!mute? csmall : c} onClick={mutecb}><FontAwesomeIcon icon={!mute ? faMicrophoneSlash : faMicrophone} /></span>
                 </div>
             </div >
         );
@@ -142,11 +142,22 @@ export default class Carousel extends React.Component {
 }
 
 
-const notgrey: any = css({});
+const notgrey: any = css({
+    opacity: 1,
+    margin: '0px',
+    padding: '7px',
+
+});
 const grey: any = css({
     opacity: .3,
+    margin: '10px',
+    padding: '10px',
+
 });
 
 const c: any = css({
-    margin: '20px',
+});
+
+const csmall: any = css({
+    fontSize: '67%',
 });

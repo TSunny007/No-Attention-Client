@@ -16,7 +16,6 @@ const App: React.FC = () => {
     <Router>
       <div className="App">
         <Header />
-        <Route exact path="/accent" component={Accent} />
         <Route exact path="/" component={PickBook} />
         <Route exact path="/pick-book" component={PickBook} />
         <Route path={"/reader"} component={Reader} />

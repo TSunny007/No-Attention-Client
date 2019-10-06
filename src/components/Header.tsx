@@ -12,7 +12,6 @@ export default class Header extends React.Component {
             <Navbar expand="lg" bg="light">
                 <Navbar.Brand>No Attention!</Navbar.Brand>
                 <Nav.Link href="#pick-book">Pick Book</Nav.Link>
-                <Nav.Link href="#accent">Accents</Nav.Link>
             </Navbar>
         );
     }
