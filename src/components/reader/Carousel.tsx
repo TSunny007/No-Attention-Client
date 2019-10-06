@@ -1,9 +1,11 @@
 import React from 'react';
-import { carousel_panel, carousel_container, centered_slide, button_layout } from '../../css';
+import { carousel_blue, carousel_green, carousel_orange,
+     centered_slide, carousel_container, button_layout } from '../../css';
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Recorder from 'recorder-js';
 import { Spinner } from 'react-bootstrap';
+import { BOOKS } from '../../BooksObjects';
 
 export default class Carousel extends React.Component {
     state: any;
@@ -75,27 +77,32 @@ export default class Carousel extends React.Component {
 
         return (
             <div className={carousel_container}>
-                <Slide text={slides[currentSlide]} callback={() => this.nextSlide()}></Slide>
+                {
+                    this.slide({text: slides[currentSlide], callback: this.nextSlide})
+                }
             </div>
+        );
+    }
+
+    public slide(props: { text: string, callback: any }) {
+        const { text, callback } = props;
+        const withoutSpace: string = text.replace(/ /g, "");
+    
+        if (withoutSpace.length === 0) {
+            callback();
+        }
+        return (
+            <div className={BOOKS[this.book].theme === 'green' ? carousel_green : 
+            (BOOKS[this.book].theme === 'blue' ? carousel_blue : carousel_orange)}>
+                <div className={centered_slide}>
+                    <h1> {text}</h1>
+                </div>
+                <div className={button_layout} >
+                    <span onClick={callback}><FontAwesomeIcon icon={faArrowAltCircleRight} /></span>
+                </div>
+            </div >
         );
     }
 }
 
-function Slide(props: { text: string, callback: any }) {
-    const { text, callback } = props;
-    const withoutSpace: string = text.replace(/ /g, "");
 
-    if (withoutSpace.length === 0) {
-        callback();
-    }
-    return (
-        <div className={carousel_panel}>
-            <div className={centered_slide}>
-                <h1> {text}</h1>
-            </div>
-            <div className={button_layout} >
-                <span onClick={callback}><FontAwesomeIcon icon={faArrowAltCircleRight} /></span>
-            </div>
-        </div >
-    );
-}

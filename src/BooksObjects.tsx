@@ -64,7 +64,11 @@ export const BOOKS: { [key: string]: IBook } = {
         Did not know what to say.
         Our mother was out of the house
         For the day.`,
-        bookThumbnail: '/cat-in-hat.jpeg'
+        bookThumbnail: '/cat-in-hat.jpeg',
+        bookSummaryThumbnail: '/cat-in-hat-summary.jpg',
+        bookCoverThumbnail: '/cat-in-hat-cover.jpg',
+        year: 2001,
+        theme: 'blue'
     },
     'fox': {
         name: 'Fox in Socks',
@@ -73,16 +77,24 @@ export const BOOKS: { [key: string]: IBook } = {
         description: 'A story about a cat that wears socks. A cunning fox it is!',
         publisher: 'Random House', //This is not the full text of the book
         text: `Fox's story goes like this...`,
-        bookThumbnail: '/fox-in-socks.jpg'
+        bookThumbnail: '/fox-in-socks.jpg',
+        bookSummaryThumbnail: '/fox-in-socks-summary.jpg',
+        bookCoverThumbnail: '/fox-in-socks-cover.jpg',
+        year: 2001,
+        theme: 'orange'
     },
-    'grinch' : {
+    'grinch': {
         name: 'How the Grinch Stole Christmas',
         author: 'Dr. Seuss',
         readingLevel: 'Medium',
         description: 'This book is about a grinch. A very popular and widely loved book.',
         publisher: 'Random House',
         text: `Grinch's story goes like this...`,
-        bookThumbnail: '/how-the-grinch-stole-christmas.png'
+        bookThumbnail: '/how-the-grinch-stole-christmas.png',
+        bookSummaryThumbnail: '/how-the-grinch-stole-christmas-summary.jpg',
+        bookCoverThumbnail: '/how-the-grinch-stole-christmas-cover.jpg',
+        year: 2001,
+        theme: 'green'
     },
-    
+
 }

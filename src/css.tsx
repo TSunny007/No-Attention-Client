@@ -6,7 +6,7 @@ export const card_div: any = css({
     'marginTop': '10px'
 });
 
-export const carousel_panel: any = css({
+export const carousel_blue: any = css({
     border: '1px solid black',
     position: 'relative',
     height: '100%',
@@ -14,6 +14,26 @@ export const carousel_panel: any = css({
     overflow: 'hidden',
     minHeight: '92.5vh',
     background: '#1188BC',
+});
+
+export const carousel_orange: any = css({
+    border: '1px solid black',
+    position: 'relative',
+    height: '100%',
+    width: '100%',
+    overflow: 'hidden',
+    minHeight: '92.5vh',
+    background: '#F46500',
+});
+
+export const carousel_green: any = css({
+    border: '1px solid black',
+    position: 'relative',
+    height: '100%',
+    width: '100%',
+    overflow: 'hidden',
+    minHeight: '92.5vh',
+    background: '#4D7701',
 });
 
 export const carousel_container: any = css({

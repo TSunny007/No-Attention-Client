@@ -45,12 +45,12 @@ export default class BookSummary extends React.Component {
             <>
                 <Row>
                     <Col className='background_container'>
-                        <img src='/cat-in-hat-summary.jpg' className='background_img' />
-                        <img src='/cat-in-hat-cover.jpg' className="book_art" />
-                        <h3 className="book_title">Cat in the Hat</h3>
-                        <h4 className="book_author">Dr. Seuss</h4>
-                        <h5 className="book_publisher">Rockefeller Records</h5>
-                        <h5 className="book_year">2001</h5>
+                        <img src={this.book.bookSummaryThumbnail} className='background_img' />
+                        <img src={this.book.bookCoverThumbnail} className="book_art" />
+                        <h3 className="book_title">{this.book.name}</h3>
+                        <h4 className="book_author">{this.book.author}</h4>
+                        <h5 className="book_publisher">{this.book.publisher}</h5>
+                        <h5 className="book_year">{this.book.year}</h5>
                     </Col>
                 </Row>
                 <Row>
